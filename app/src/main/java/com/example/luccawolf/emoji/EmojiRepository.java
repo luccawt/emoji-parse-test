@@ -10,7 +10,7 @@ public class EmojiRepository {
     static {
         emojiMap = new HashMap<>();
         emojiMap.put(":)", R.drawable.happyface);
-        emojiMap.put("OSfrog", R.drawable.osfrog);
+        //emojiMap.put("OSfrog", R.drawable.osfrog);
         emojiMap.put(";)", R.drawable.piscada);
         emojiMap.put(";P", R.drawable.lingua);
         emojiMap.put("S2", R.drawable.coracao);
