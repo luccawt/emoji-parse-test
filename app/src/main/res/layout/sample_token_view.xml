@@ -2,23 +2,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"></GridLayout>
+
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|top">
 
         <ImageView
             android:id="@+id/thumbnail_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/happyface" />
+            android:src="@drawable/happyface"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
         <TextView
             android:id="@+id/message_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/thumbnail_view"
             android:text="MyText"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:layout_gravity="left|top"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/thumbnail_view"
+            android:layout_toEndOf="@+id/thumbnail_view" />
+
     </RelativeLayout>
 
 </FrameLayout>

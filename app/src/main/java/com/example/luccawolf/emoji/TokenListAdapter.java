@@ -8,19 +8,20 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
+import java.util.Date;
+
 public class TokenListAdapter extends BaseAdapter {
 
     private static LayoutInflater inflater = null;
 
-    private final EmojiRepository emojiRepository;
-
     private Context context;
     private Token[] tokens;
 
-    public TokenListAdapter(Context context, Token[] tokens, EmojiRepository emojiRepository) {
+    public TokenListAdapter(Context context, Token[] tokens) {
         this.tokens = tokens;
         this.context = context;
-        this.emojiRepository = emojiRepository;
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
@@ -50,12 +51,11 @@ public class TokenListAdapter extends BaseAdapter {
         TextView text = (TextView) vi.findViewById(R.id.message_view);
         text.setText(token.getSymbol());
 
-        final ImageView image = (ImageView) vi.findViewById(R.id.thumbnail_view);
-        if (token.isEmoji(emojiRepository)) {
-            image.setImageResource(token.getEmojiImage(emojiRepository));
-        } else {
-            image.setVisibility(View.INVISIBLE);
-        }
+        final ImageView imageView = (ImageView) vi.findViewById(R.id.thumbnail_view);
+
+        final String imageUrl = String.format("http://192.168.10.129:8081/image/%s?%d", token.getImageName(), new Date().getTime());
+        Picasso.with(context).load(imageUrl).into(imageView);
+
         return vi;
     }
 }

@@ -1,28 +1,17 @@
 package com.example.luccawolf.emoji;
 
-import android.widget.EditText;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.StringTokenizer;
 public class Phrase {
 
+    @JsonProperty("phrase")
     private final String text;
 
     public Phrase(String text) {
         this.text = text;
     }
 
-
-
-
-    public List<Token> getTokens() {
-        final List<Token> tokens = new ArrayList<>();
-        final StringTokenizer tokenizer = new StringTokenizer(text, " ");
-        while (tokenizer.hasMoreTokens()) {
-            tokens.add(new Token(tokenizer.nextToken()));
-        }
-        return tokens;
+    public String getText() {
+        return text;
     }
-
 }

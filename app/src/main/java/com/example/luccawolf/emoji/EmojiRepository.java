@@ -9,14 +9,14 @@ public class EmojiRepository {
 
     static {
         emojiMap = new HashMap<>();
-        emojiMap.put(":)", R.drawable.happyface);
-        //emojiMap.put("OSfrog", R.drawable.osfrog);
-        emojiMap.put(";)", R.drawable.piscada);
-        emojiMap.put(";P", R.drawable.lingua);
-        emojiMap.put("S2", R.drawable.coracao);
-        emojiMap.put(":D",R.drawable.sorriso);
-
-
+        /*emojiMap.put(":)", R.drawable.happyface);
+          emojiMap.put("OSfrog", R.drawable.osfrog);
+          emojiMap.put(";)", R.drawable.piscada);
+          emojiMap.put(";P", R.drawable.lingua);
+          emojiMap.put("S2", R.drawable.coracao);
+          emojiMap.put(":D",R.drawable.sorriso);
+//        emojiMap.put("WutFace",R.drawable.);
+        */
     }
 
     public int getEmoji(String symbol) {
