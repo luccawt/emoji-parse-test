@@ -26,4 +26,8 @@ public class Token {
     public void setImageName(String imageName) {
         this.imageName = imageName;
     }
+
+    public String getImageUrl() {
+        return String.format("%s/image/%s", EmojiServer.getInstance().getUrl(), imageName);
+    }
 }

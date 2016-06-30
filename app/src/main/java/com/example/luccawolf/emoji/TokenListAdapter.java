@@ -10,8 +10,6 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
-import java.util.Date;
-
 public class TokenListAdapter extends BaseAdapter {
 
     private static LayoutInflater inflater = null;
@@ -53,8 +51,7 @@ public class TokenListAdapter extends BaseAdapter {
 
         final ImageView imageView = (ImageView) vi.findViewById(R.id.thumbnail_view);
 
-        final String imageUrl = String.format("http://192.168.10.129:8081/image/%s?%d", token.getImageName(), new Date().getTime());
-        Picasso.with(context).load(imageUrl).into(imageView);
+        Picasso.with(context).load(token.getImageUrl()).into(imageView);
 
         return vi;
     }
