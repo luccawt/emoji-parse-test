@@ -1,11 +1,13 @@
 package com.example.luccawolf.emoji;
 
+import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -88,9 +90,18 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(List<Token> tokens) {
             if (tokens != null && tokens.size() > 0) {
                 listView.setAdapter(new TokenListAdapter(activity, tokens.toArray(new Token[tokens.size()])));
+                activity.hideKeyboard();
             } else {
                 activity.showWarningMessage("Nenhum emoji foi encontrado");
             }
+        }
+    }
+
+    private void hideKeyboard() {
+        View view = this.getCurrentFocus();
+        if (view != null) {
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
         }
     }
 
